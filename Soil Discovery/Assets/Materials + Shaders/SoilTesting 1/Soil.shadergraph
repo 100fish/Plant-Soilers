@@ -1855,10 +1855,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1068.6666259765625,
-            "y": 126.66668701171875,
-            "width": 209.3333740234375,
-            "height": 435.99993896484377
+            "x": -1051.333251953125,
+            "y": 130.66665649414063,
+            "width": 209.33331298828126,
+            "height": 435.9999694824219
         }
     },
     "m_Slots": [
@@ -2845,7 +2845,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Texture",
     "m_DefaultReferenceName": "_Texture",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
