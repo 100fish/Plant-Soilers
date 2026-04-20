@@ -185,7 +185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dbb6244f2f0f1eb498c7eda020020515, type: 2}
+  - {fileID: 2100000, guid: 6f4de8dca40f86a478cc0b5547aa4f3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoilMousePass
   soilMaterial: {fileID: 2100000, guid: dbb6244f2f0f1eb498c7eda020020515, type: 2}
+  soilTex: {fileID: 8600000, guid: 58cc961740232df49a7f0051daddeea3, type: 2}
 --- !u!4 &647816538
 Transform:
   m_ObjectHideFlags: 0

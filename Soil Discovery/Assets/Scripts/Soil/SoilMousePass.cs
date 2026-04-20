@@ -10,10 +10,14 @@ public class SoilMousePass : MonoBehaviour
     Vector3 mousePosition;
     Vector3 mousePositionOnObject;
 
+    public RenderTexture soilTex;
+
 
     void Start()
     {
         mousePositionField = Shader.PropertyToID("_MousePosition");
+        //soilTex = new RenderTexture(1024, 1014, 0);
+        soilMaterial.SetTexture("_MainTex", soilTex);
     }
 
     // Update is called once per frame
@@ -31,5 +35,11 @@ public class SoilMousePass : MonoBehaviour
 
 
         soilMaterial.SetVector(mousePositionField, mousePositionOnObject);
+
+        RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
+        RenderTexture temp2 = RenderTexture.GetTemporary(1024, 1024);
+        Graphics.Blit(soilTex, temp, soilMaterial);
+        Graphics.Blit(temp, soilTex);
+
     }
 }
