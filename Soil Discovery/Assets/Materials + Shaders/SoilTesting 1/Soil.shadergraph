@@ -1034,7 +1034,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"cac9fcac26a722b4e994782a5355a696\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"2aafed03911443e4f9e6c54cabdfa690\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
