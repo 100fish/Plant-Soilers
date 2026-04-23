@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "SoilInput",
+    "maps": [
+        {
+            "name": "Testing",
+            "id": "da08adac-13cb-41b1-8f27-c595261de4af",
+            "actions": [
+                {
+                    "name": "Dig",
+                    "type": "Button",
+                    "id": "ef187f0d-46b0-4dfc-956d-10e16252f417",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a1331523-ece0-471c-919c-dee2f5c5403e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dig",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

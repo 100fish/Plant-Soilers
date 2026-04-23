@@ -6,6 +6,26 @@ public class SoilMousePass : MonoBehaviour
     [SerializeField] private Material soilMaterial;
     [SerializeField] private Material visibleMaterial;
 
+    private SoilInput playerControls;
+
+    [SerializeField] private float digTimerMax;
+    private float digTimer;
+
+    private void OnEnable()
+    {
+        playerControls.Enable(); //Enabling and disabling the Input Asset is required 
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable(); //Enabling and disabling the Input Asset is required 
+    }
+
+    private void Awake()
+    {
+        playerControls = new SoilInput();
+    }
+
     //[SerializeField] private Texture startTexture;
 
     [SerializeField] private bool UseObjectLocalSpaceInsteadOfScreenSpace = true;
@@ -18,6 +38,9 @@ public class SoilMousePass : MonoBehaviour
 
     void Start()
     {
+
+       
+
         //Since we update this shader property ever frame its faster to get the ID
         mousePositionField = Shader.PropertyToID("_MousePosition");
 
@@ -36,7 +59,10 @@ public class SoilMousePass : MonoBehaviour
     {
         //Get the mouse's position in Screenspace
         mousePosition = Mouse.current.position.ReadValue();
-        Debug.Log("MousePosition: " + mousePosition);
+        //Debug.Log("MousePosition: " + mousePosition);
+
+        if (playerControls.Testing.Dig.inProgress && digTimer <= 0)
+        {
 
             if (UseObjectLocalSpaceInsteadOfScreenSpace == false)
             {
@@ -58,6 +84,13 @@ public class SoilMousePass : MonoBehaviour
                     SetMousePosition(mousePositionOnObject);
                 }
             }
+
+            digTimer = digTimerMax;
+        }
+        else
+        {
+            digTimer -= Time.deltaTime;
+        }
     }
 
     private void SetMousePosition(Vector2 mouseCoord)

@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _New_Texture:
-        m_Texture: {fileID: 2800000, guid: 94af2e1c60d4c6343b69dc6c1a0219ac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4b2d7d17e9c8ab846b75a8d5d7a08e8b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -133,7 +133,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MousePosition: {r: 0.0017260229, g: 0.18101688, b: 0, a: 0}
+    - _MousePosition: {r: 0.62628865, g: 1.3556701, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
