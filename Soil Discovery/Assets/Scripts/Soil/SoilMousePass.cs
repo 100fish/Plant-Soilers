@@ -95,6 +95,12 @@ public class SoilMousePass : MonoBehaviour
 
     private void SetMousePosition(Vector2 mouseCoord)
     {
+        //soilMaterial.SetMatrix("_MousePositionMatrix", new Matrix4x4(
+        //    new Vector4(mouseCoord.y, mouseCoord.x, 0, 0),
+        //    new Vector4(0, 0, 0, 0),
+        //    new Vector4(0, 0, 0, 0),
+        //    new Vector4(0, 0, 0, 0)));
+
         soilMaterial.SetVector(mousePositionField, mouseCoord);
         Debug.Log("Current coord: " + mouseCoord);
 
