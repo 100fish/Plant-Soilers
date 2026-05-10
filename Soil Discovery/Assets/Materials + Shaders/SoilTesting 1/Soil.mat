@@ -33,7 +33,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cursor:
-        m_Texture: {fileID: 2800000, guid: ff1401c0ff11b4940aecf27eb9b66273, type: 3}
+        m_Texture: {fileID: 2800000, guid: f4704a3b258383449833ddc570aa5453, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CursorDisplace:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -133,7 +137,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MousePosition: {r: 0.5285821, g: 0.8806706, b: 0, a: 0}
+    - _MousePosition: {r: 0.15319864, g: 0.5961466, b: 0, a: 0}
+    - _MousePosition2: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
