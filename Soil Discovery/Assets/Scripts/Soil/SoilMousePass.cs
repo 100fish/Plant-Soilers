@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,7 +19,9 @@ public class SoilMousePass : MonoBehaviour
 
     private void OnDisable()
     {
-        playerControls.Disable(); //Enabling and disabling the Input Asset is required 
+        playerControls.Disable(); //Enabling and disabling the Input Asset is required
+
+        soilTex.Release();
     }
 
     private void Awake()
@@ -105,12 +108,15 @@ public class SoilMousePass : MonoBehaviour
         Debug.Log("Current coord: " + mouseCoord);
 
         RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
-        RenderTexture temp2 = RenderTexture.GetTemporary(1024, 1024);
         Graphics.Blit(soilTex, temp, soilMaterial);
         Graphics.Blit(temp, soilTex);
+
+        RenderTexture.ReleaseTemporary(temp);
 
 
 
     }
+
+    
 
 }
