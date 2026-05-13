@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2593277618694579644}
   m_Layer: 0
   m_Name: TestWorm
-  m_TagString: Untagged
+  m_TagString: BUG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PathFollow
   pathsToFollow:
   - {fileID: 0}
-  speedFloat: 0.5
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  startOffsetSeconds: 0
+  speedFloat: 0.1
 --- !u!1 &6894142824789189331
 GameObject:
   m_ObjectHideFlags: 0

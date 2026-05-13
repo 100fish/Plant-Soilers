@@ -6,6 +6,8 @@ public class PathFollow : MonoBehaviour
     [SerializeField]
     private Transform[] pathsToFollow;
 
+    public float startOffsetSeconds;
+
     private Vector2 updatedPosition;
 
     private int pathCurrent;
@@ -21,21 +23,33 @@ public class PathFollow : MonoBehaviour
     {
             pathCurrent = 0;
             timeFloat = 0f;
-            canBeginPath = true;
+            //canBeginPath = true;
+            StartCoroutine(INITIALRandomWait());
     }
 
     private void Update()
     {
         if (canBeginPath)
         {
-            StartCoroutine(FollowPath());
+            StartCoroutine(RandomWait());
         }
-    }
 
-    private IEnumerator FollowPath()
+    }
+    private IEnumerator INITIALRandomWait()
     {
         canBeginPath = false;
+        yield return new WaitForSeconds(startOffsetSeconds);
+        canBeginPath = true;
+    }
 
+    private IEnumerator RandomWait()
+    {
+             canBeginPath = false;
+             yield return new WaitForSeconds(Random.Range(2f, 5f));
+             StartCoroutine(FollowPath());
+    }
+    private IEnumerator FollowPath()
+    {
         Vector2 p0 = pathsToFollow[pathCurrent].GetChild(0).position;
         Vector2 p1 = pathsToFollow[pathCurrent].GetChild(1).position;
         Vector2 p2 = pathsToFollow[pathCurrent].GetChild(2).position;

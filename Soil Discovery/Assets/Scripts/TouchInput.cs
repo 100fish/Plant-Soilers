@@ -16,14 +16,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         foreach (UnityEngine.InputSystem.EnhancedTouch.Touch touches in UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches)
         {
-            if (touches.phase == UnityEngine.InputSystem.TouchPhase.Began)
+            if (touches.phase == UnityEngine.InputSystem.TouchPhase.Began || touches.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
                 Vector2 touchPosition = touches.screenPosition;
                 RaycastHit hit;
                 if (Physics.Raycast(mainCamera.ScreenPointToRay(touchPosition), out hit))
                 {
-                    Debug.Log("Touch hit: " + hit.collider.gameObject.name);
-                    Instantiate(objectToSpawn, hit.point, Quaternion.identity);
+                    if(hit.collider.gameObject.CompareTag("BUG"))
+                    {
+                        Debug.Log("Touch hit: " + hit.collider.gameObject.tag);
+                    }
                 }
             }
         }
