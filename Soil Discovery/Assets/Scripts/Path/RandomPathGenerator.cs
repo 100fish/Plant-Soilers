@@ -19,12 +19,12 @@ public class RandomPathGenerator : MonoBehaviour
     private Vector2 endPoint = new Vector2();
 
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        //keep the sides in an array for easy access
         sides = new Vector2[4] { TopLeft, TopRight, BottomRight, BottomLeft };
-        
+
+        //singleton pattern to ensure only one instance of the path generator exists
         if (instance == null)
         {
             instance = this;
@@ -63,6 +63,7 @@ public class RandomPathGenerator : MonoBehaviour
 
     public void applyPath()
     {
+        //set all the points to the path bezier handles
         GameObject.Find("Path").transform.GetChild(0).position = startPoint;
         GameObject.Find("Path").transform.GetChild(1).position = secondPoint;
         GameObject.Find("Path").transform.GetChild(2).position = thirdPoint;
@@ -72,6 +73,7 @@ public class RandomPathGenerator : MonoBehaviour
 
     void OnDrawGizmos()
     {
-            Gizmos.DrawLine(startPoint, endPoint);
+        //Draw the path in the editor for visualization
+        Gizmos.DrawLine(startPoint, endPoint);
     }
 }
