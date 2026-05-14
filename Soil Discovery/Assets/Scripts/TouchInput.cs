@@ -11,6 +11,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public GameObject objectToSpawn;
     public Camera mainCamera;
+    public GameObject TouchBall;
     // Update is called once per frame
     void Update()
     {
@@ -22,11 +23,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(mainCamera.ScreenPointToRay(touchPosition), out hit))
                 {
-                    if(hit.collider.gameObject.CompareTag("BUG"))
-                    {
-                        Debug.Log("Touch hit: " + hit.collider.gameObject.tag);
-                    }
+                    Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 8); //Arbitrary z value to keep the object visible
+                    TouchBall.transform.position = touchSpotZFix;
                 }
+            }
+            if(touches.phase == UnityEngine.InputSystem.TouchPhase.Ended || touches.phase == UnityEngine.InputSystem.TouchPhase.None)
+            {
+                TouchBall.transform.position = new Vector3(0, -100, 0);
             }
         }
     }
