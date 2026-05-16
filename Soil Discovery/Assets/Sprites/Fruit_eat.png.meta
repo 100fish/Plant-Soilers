@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c32b56d7cbafcac439a0337bf6a1e2a2
+guid: e698221a459cd434ba77c2317cbf2423
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LarvaSpritesheet_0
+      name: Fruit_eat_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80f6eaeb5b15b9e4aa41b2615bd24e53
-      internalID: -891647806
+      spriteID: 90d18e7d1e76487499244acf67ed13be
+      internalID: 788182799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LarvaSpritesheet_1
+      name: Fruit_eat_1
       rect:
         serializedVersion: 2
         x: 2048
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d6c49e739379944f8112d7e719bf6c0
-      internalID: 1399286047
+      spriteID: 2ed43a0f636c7ed4c900012e535e781a
+      internalID: 1734514805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LarvaSpritesheet_2
+      name: Fruit_eat_2
       rect:
         serializedVersion: 2
         x: 4096
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8be123d2e382504aac4a867a1d61dbc
-      internalID: 1472853848
+      spriteID: 23bd158c2ab98a945ac6329ceea19606
+      internalID: 1595864999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LarvaSpritesheet_3
+      name: Fruit_eat_3
       rect:
         serializedVersion: 2
         x: 6144
@@ -178,8 +178,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c35330618e91f34c9d9a5c4e630521a
-      internalID: 1519549314
+      spriteID: 070ed4df8174de145ac56f2153ab974c
+      internalID: 65121788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fruit_eat_4
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 0
+        width: 2048
+        height: 2048
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ae426520ba4f0499d60877edfd194f
+      internalID: -1327215513
       vertices: []
       indices: 
       edges: []
@@ -188,7 +210,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1b91ff7eb4ce73b42887a77a4e7f1174
+    spriteID: fb643cd103de6404f9299c2c970079c6
     internalID: 0
     vertices: []
     indices: 
@@ -200,10 +222,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2048.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      LarvaSpritesheet_0: -891647806
-      LarvaSpritesheet_1: 1399286047
-      LarvaSpritesheet_2: 1472853848
-      LarvaSpritesheet_3: 1519549314
+      Fruit_eat_0: 788182799
+      Fruit_eat_1: 1734514805
+      Fruit_eat_2: 1595864999
+      Fruit_eat_3: 65121788
+      Fruit_eat_4: -1327215513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

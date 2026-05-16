@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c32b56d7cbafcac439a0337bf6a1e2a2
+guid: a11d1534033ad6641808f3486c780e69
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LarvaSpritesheet_0
+      name: Bug_Food1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80f6eaeb5b15b9e4aa41b2615bd24e53
-      internalID: -891647806
+      spriteID: fdd87aa7ab9dfe047af11ba5e77391e9
+      internalID: 1964130740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LarvaSpritesheet_1
+      name: Bug_Food1_1
       rect:
         serializedVersion: 2
         x: 2048
@@ -134,52 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d6c49e739379944f8112d7e719bf6c0
-      internalID: 1399286047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LarvaSpritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8be123d2e382504aac4a867a1d61dbc
-      internalID: 1472853848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LarvaSpritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 6144
-        y: 0
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c35330618e91f34c9d9a5c4e630521a
-      internalID: 1519549314
+      spriteID: 17240dd4b648bfa469a22cc0c056a485
+      internalID: -319680732
       vertices: []
       indices: 
       edges: []
@@ -188,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1b91ff7eb4ce73b42887a77a4e7f1174
+    spriteID: 14622c2b9a39746408406678ab706713
     internalID: 0
     vertices: []
     indices: 
@@ -200,10 +156,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2048.0,"y":2048.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      LarvaSpritesheet_0: -891647806
-      LarvaSpritesheet_1: 1399286047
-      LarvaSpritesheet_2: 1472853848
-      LarvaSpritesheet_3: 1519549314
+      Bug_Food1_0: 1964130740
+      Bug_Food1_1: -319680732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
