@@ -6,11 +6,16 @@ public class SoilMousePass : MonoBehaviour
 {
     [SerializeField] private Material soilMaterial;
     [SerializeField] private Material visibleMaterial;
+    [SerializeField] private TouchInput touchInput;
+
 
     private SoilInput playerControls;
 
     [SerializeField] private float digTimerMax;
     private float digTimer;
+
+    private Vector3 mousePositionOnObject;
+    private Vector2 lastPosition = new(0,0);
 
     private void OnEnable()
     {
@@ -31,7 +36,7 @@ public class SoilMousePass : MonoBehaviour
 
     //[SerializeField] private Texture startTexture;
 
-    [SerializeField] private bool UseObjectLocalSpaceInsteadOfScreenSpace = true;
+    [SerializeField] private bool UseTouchSphereInsteadOfRaycast = true;
 
     private Vector2 mousePosition;
     private RenderTexture soilTex;
@@ -62,16 +67,14 @@ public class SoilMousePass : MonoBehaviour
     {
         //Get the mouse's position in Screenspace
         mousePosition = Mouse.current.position.ReadValue();
-        //Debug.Log("MousePosition: " + mousePosition);
 
         if (playerControls.Testing.Dig.inProgress && digTimer <= 0)
         {
 
-            if (UseObjectLocalSpaceInsteadOfScreenSpace == false)
+            if (UseTouchSphereInsteadOfRaycast == false)
             {
-                //adjust the mouse position to be on a scale of zero to one on each axis
-                mousePosition.x /= Screen.width;
-                mousePosition.y /= Screen.height;
+                //set position to ball's position
+                mousePositionOnObject = touchInput.hit.textureCoord;
 
                 //Set the shader's mouseposition value to the mouse's position in screen space
                 SetMousePosition(mousePosition);
@@ -80,10 +83,12 @@ public class SoilMousePass : MonoBehaviour
             {
                 //Send a ray to find the mouse's position in local space
                 Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     //store as Vector3 Just in case with need the z?
                     Vector3 mousePositionOnObject = hit.textureCoord;
+
                     SetMousePosition(mousePositionOnObject);
                 }
             }
@@ -98,23 +103,18 @@ public class SoilMousePass : MonoBehaviour
 
     private void SetMousePosition(Vector2 mouseCoord)
     {
-        //soilMaterial.SetMatrix("_MousePositionMatrix", new Matrix4x4(
-        //    new Vector4(mouseCoord.y, mouseCoord.x, 0, 0),
-        //    new Vector4(0, 0, 0, 0),
-        //    new Vector4(0, 0, 0, 0),
-        //    new Vector4(0, 0, 0, 0)));
+        if(mouseCoord != lastPosition)
+        {
+            soilMaterial.SetVector(mousePositionField, mouseCoord);
 
-        soilMaterial.SetVector(mousePositionField, mouseCoord);
-        Debug.Log("Current coord: " + mouseCoord);
+            RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
+            Graphics.Blit(soilTex, temp, soilMaterial);
+            Graphics.Blit(temp, soilTex);
 
-        RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
-        Graphics.Blit(soilTex, temp, soilMaterial);
-        Graphics.Blit(temp, soilTex);
+            RenderTexture.ReleaseTemporary(temp);
+        }
 
-        RenderTexture.ReleaseTemporary(temp);
-
-
-
+        lastPosition = mouseCoord;
     }
 
     

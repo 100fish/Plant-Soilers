@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-public class NewMonoBehaviourScript : MonoBehaviour
+public class TouchInput : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,6 +12,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public GameObject objectToSpawn;
     public Camera mainCamera;
     public GameObject TouchBall;
+
+    //public RaycastHit hit; //Griff code (removed for now)
     // Update is called once per frame
     void Update()
     {
@@ -20,7 +22,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
             if (touches.phase == UnityEngine.InputSystem.TouchPhase.Began || touches.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
                 Vector2 touchPosition = touches.screenPosition;
-                RaycastHit hit;
+                RaycastHit hit; //Griff code (removed for now)
                 if (Physics.Raycast(mainCamera.ScreenPointToRay(touchPosition), out hit))
                 {
                     Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 8); //Arbitrary z value to keep the object visible
