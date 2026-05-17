@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1033281197154614460}
   - component: {fileID: 8818775095041586766}
   - component: {fileID: 1329163466159642714}
+  - component: {fileID: 2973377081382216300}
   m_Layer: 0
   m_Name: MushroomPrefab1
   m_TagString: SHROOM
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.42853, y: -0.39362, z: 4.44362}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,3 +137,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 7
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &2973377081382216300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531675877191134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93eefef4c48b5d6438eb10660ad0853e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DecayScript
