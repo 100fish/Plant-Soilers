@@ -13,7 +13,7 @@ public class TouchInput : MonoBehaviour
     public Camera mainCamera;
     public GameObject TouchBall;
 
-    //public RaycastHit hit; //Griff code (removed for now)
+    public RaycastHit hit; //Griff code
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +22,7 @@ public class TouchInput : MonoBehaviour
             if (touches.phase == UnityEngine.InputSystem.TouchPhase.Began || touches.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
                 Vector2 touchPosition = touches.screenPosition;
-                RaycastHit hit; //Griff code (removed for now)
+                //RaycastHit hit; //Griff code
                 if (Physics.Raycast(mainCamera.ScreenPointToRay(touchPosition), out hit))
                 {
                     Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 8); //Arbitrary z value to keep the object visible

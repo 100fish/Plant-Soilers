@@ -14,8 +14,7 @@ public class SoilMousePass : MonoBehaviour
     [SerializeField] private float digTimerMax;
     private float digTimer;
 
-    private Vector3 mousePositionOnObject;
-    private Vector2 lastPosition = new(0,0);
+
 
     private void OnEnable()
     {
@@ -38,6 +37,9 @@ public class SoilMousePass : MonoBehaviour
 
     [SerializeField] private bool UseTouchSphereInsteadOfRaycast = true;
 
+    private Vector2 mousePositionOnObject;
+    private Vector2 lastPosition = new(0,0);
+
     private Vector2 mousePosition;
     private RenderTexture soilTex;
 
@@ -46,9 +48,6 @@ public class SoilMousePass : MonoBehaviour
 
     void Start()
     {
-
-       
-
         //Since we update this shader property ever frame its faster to get the ID
         mousePositionField = Shader.PropertyToID("_MousePosition");
 
@@ -67,27 +66,30 @@ public class SoilMousePass : MonoBehaviour
     {
         //Get the mouse's position in Screenspace
         mousePosition = Mouse.current.position.ReadValue();
+        Debug.Log(mousePosition);
 
-        if (playerControls.Testing.Dig.inProgress && digTimer <= 0)
+        if (/*playerControls.Testing.Dig.inProgress &&*/ digTimer <= 0)
         {
 
-            if (UseTouchSphereInsteadOfRaycast == false)
+            if (UseTouchSphereInsteadOfRaycast == true)
             {
                 //set position to ball's position
                 mousePositionOnObject = touchInput.hit.textureCoord;
 
                 //Set the shader's mouseposition value to the mouse's position in screen space
-                SetMousePosition(mousePosition);
+                SetMousePosition(mousePositionOnObject);
             }
             else
             {
                 //Send a ray to find the mouse's position in local space
                 Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+                Debug.Log($"Ray = {ray}");
+
 
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                    //store as Vector3 Just in case with need the z?
-                    Vector3 mousePositionOnObject = hit.textureCoord;
+                    mousePositionOnObject = hit.textureCoord;
+                    Debug.Log($"Texcord = {mousePositionOnObject}");
 
                     SetMousePosition(mousePositionOnObject);
                 }
