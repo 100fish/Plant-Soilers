@@ -41,10 +41,10 @@ public class PathFollow : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("TOUCH") && !caught)
+        Debug.Log("Collision detected with: " + other.gameObject.tag);
+        if (other.gameObject.CompareTag("TOUCH") && !caught)
         {
             caught = true;
             timeFloat = 0f;
