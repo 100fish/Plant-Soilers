@@ -12,10 +12,23 @@ public class MushroomDrag : MonoBehaviour
     Vector2 lastDrop = Vector2.zero;
     Vector2 currentDrop = Vector2.zero;
 
+
+    /*
+    private void OnEnable()
+    {
+        EnhancedTouchSupport.Enable();
+        TouchSimulation.Enable();
+    }
+
+    private void OnDisable()
+    {
+        TouchSimulation.Disable();
+    } */
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EnhancedTouchSupport.Enable();
+        //EnhancedTouchSupport.Enable();
     }
 
     // Update is called once per frame

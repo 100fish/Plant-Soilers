@@ -7,6 +7,19 @@ using System.Linq;
 public class TouchInput : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    /*
+    private void OnEnable()
+    {
+        EnhancedTouchSupport.Enable();
+        TouchSimulation.Enable();
+    }
+
+    private void OnDisable()
+    {
+        TouchSimulation.Disable();
+    } */
+
     void Start()
     {
         if (Instance != null && Instance != this)

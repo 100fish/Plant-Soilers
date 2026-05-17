@@ -90,6 +90,9 @@ public class SoilMousePass : MonoBehaviour
             touchPositions[0] = touchInput.hitMesh.textureCoord;
 
 
+
+            //touchPositions[0] = Mouse.current.position;
+
             //Set the shader's mouseposition value to the mouse's position in screen space
             Dig(touchPositions);
                 
