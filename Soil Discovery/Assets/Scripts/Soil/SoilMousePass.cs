@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -68,16 +69,18 @@ public class SoilMousePass : MonoBehaviour
         //Get the mouse's position in Screenspace
         mousePosition = Mouse.current.position.ReadValue();
 
-        if (playerControls.Testing.Dig.inProgress && digTimer <= 0)
+        if (/*playerControls.Testing.Dig.inProgress && */ digTimer <= 0)
         {
 
             if (UseTouchSphereInsteadOfRaycast == false)
             {
+                Debug.Log("Using raycast to find mouse position");
                 //set position to ball's position
-                mousePositionOnObject = touchInput.hit.textureCoord;
-
+                Vector2 touchPosition = TouchInput.Instance.hitMesh.textureCoord;
+                Debug.Log("Mouse position on object: " + touchPosition);
                 //Set the shader's mouseposition value to the mouse's position in screen space
-                SetMousePosition(mousePosition);
+                SetMousePosition(touchPosition);
+                
             }
             else
             {
