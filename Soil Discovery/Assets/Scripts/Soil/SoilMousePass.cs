@@ -11,6 +11,7 @@ public class SoilMousePass : MonoBehaviour
     [SerializeField] private TouchInput touchInput;
 
 
+
     private SoilInput playerControls;
 
     [SerializeField] private float digTimerMax;
@@ -25,7 +26,11 @@ public class SoilMousePass : MonoBehaviour
 
     //Stores the IDs of the Shader property this script updates
     private int[] touchPositionFields = new int[10];
-    private int[] bugPositionFields = new int[10];
+    private int[] bugPositionFields = new int[6];
+
+    private float[] currentTouchValues = new float[10];
+
+    private Vector2[] touchPositions = new Vector2[10];
 
     private Vector2[] previousTouchPositions = new Vector2[10];
 
@@ -77,12 +82,14 @@ public class SoilMousePass : MonoBehaviour
 
         if (/*playerControls.Testing.Dig.inProgress &&*/ digTimer <= 0)
         {
-                //set position to ball's position
-                mousePositionOnObject = touchInput.hitMesh.textureCoord;
-                
+            //set position to ball's position
+            touchPositions[0] = touchInput.hitMesh.textureCoord;
 
-                //Set the shader's mouseposition value to the mouse's position in screen space
-                SetMousePosition(mousePositionOnObject);
+
+            //Set the shader's mouseposition value to the mouse's position in screen space
+            Dig(touchPositions);
+                
+                //SetMousePosition(mousePositionOnObject);
 
 
             digTimer = digTimerMax;
@@ -94,7 +101,7 @@ public class SoilMousePass : MonoBehaviour
     }
 
     //will be used once multitouch is set up
-    public void Dig(Vector2[] touchPositions, Vector2[] bugPositions)
+    private void Dig(Vector2[] touchPositions)
     {
         //check if any touchs are the same
         for (int i = 0; i < touchPositions.Length; i++)
@@ -103,7 +110,7 @@ public class SoilMousePass : MonoBehaviour
             {
                 if (touchPositions[i] == previousTouchPositions[ii])
                 {
-                    touchPositions[i] = new Vector2(-10000, -10000);
+                    touchPositions[i] = new Vector2(0, 0);
                 }
             }
         }
@@ -111,19 +118,63 @@ public class SoilMousePass : MonoBehaviour
         //Set the touch positions in the shader and store them for the next frame's comparison
         for (int i = 0; i < touchPositions.Length; i++)
         {
+            //Debug.Log(touchPositions[i] + "and touch number is: " + i);
             soilMaterial.SetVector(touchPositionFields[i], touchPositions[i]);
 
             previousTouchPositions[i] = touchPositions[i];
         }
 
-        //implement bug digging later
+        Vector2[] bugPositions = BugManager.Instance.GetBugPositionArray();
+        //Set the bug positions in the shader and store them for the next frame's comparison
+
+        Debug.Log(bugPositions.Length);
+        Debug.Log(bugPositionFields.Length);
+
+        for (int i = 0; i < bugPositions.Length; i++)
+        {
+            //Debug.Log(bugPositions[i] + "and bug number is: " + i);
+            soilMaterial.SetVector(bugPositionFields[i], bugPositions[i]);
+        }
 
         //actually draw
         RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
         Graphics.Blit(soilTex, temp, soilMaterial);
         Graphics.Blit(temp, soilTex);
 
+
+        for (int i = 0; i < currentTouchValues.Length; i++)
+        {
+
+            Color tempColor = GetPixelFromRT(temp, Mathf.RoundToInt(touchPositions[i].x), Mathf.RoundToInt(touchPositions[i].y));
+
+            currentTouchValues[i] = tempColor.r;
+        }
+
         RenderTexture.ReleaseTemporary(temp);
+    }
+
+    public Color GetPixelFromRT(RenderTexture rt, int x, int y)
+    {
+        // Remember current active RT to restore later
+        RenderTexture currentActiveRT = RenderTexture.active;
+
+        // Set target RT as active
+        RenderTexture.active = rt;
+
+        // Create a 1x1 Texture2D to hold just the single pixel (saves memory)
+        Texture2D tex = new Texture2D(1, 1, TextureFormat.RGB24, false);
+
+        // Read the specific pixel at (x, y) into the 1x1 texture
+        tex.ReadPixels(new Rect(x, y, 1, 1), 0, 0);
+        tex.Apply();
+
+        // Restore the previous active RT
+        RenderTexture.active = currentActiveRT;
+
+        Color pixelColor = tex.GetPixel(0, 0);
+        Destroy(tex);
+
+        return pixelColor;
     }
 
     //will become defunct once multitouch is set up
@@ -136,6 +187,13 @@ public class SoilMousePass : MonoBehaviour
             RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
             Graphics.Blit(soilTex, temp, soilMaterial);
             Graphics.Blit(temp, soilTex);
+
+            for (int i = 0; i < currentTouchValues.Length; i++)
+            {
+                Color tempColor = GetPixelFromRT(temp, Mathf.RoundToInt(mouseCoord.x), Mathf.RoundToInt(mouseCoord.y));
+
+                currentTouchValues[i] = tempColor.r;
+            }
 
             RenderTexture.ReleaseTemporary(temp);
         }

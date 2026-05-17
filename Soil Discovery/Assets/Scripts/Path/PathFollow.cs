@@ -36,6 +36,11 @@ public class PathFollow : MonoBehaviour
             StartCoroutine(INITIALRandomWait());
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, transform.forward * -1);
+    }
+
     private void Update()
     {
         if (canBeginPath)
@@ -44,7 +49,7 @@ public class PathFollow : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward * -1, out hit))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), transform.forward, out hit))
         {
             Vector2 MeshHitBug = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
             BugManager.Instance.BugPositionList.Add(MeshHitBug);

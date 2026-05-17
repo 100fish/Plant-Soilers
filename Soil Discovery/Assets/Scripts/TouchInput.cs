@@ -62,12 +62,12 @@ public class TouchInput : MonoBehaviour
             //Working below
             if (currentTouch.phase == UnityEngine.InputSystem.TouchPhase.Began || currentTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
-                Debug.Log("Touch position: " + currentTouch.screenPosition);
+                //Debug.Log("Touch position: " + currentTouch.screenPosition);
                 Vector2 touchPosition = currentTouch.screenPosition;
                 RaycastHit hit; //Griff code (removed for now)
                 if (Physics.Raycast(mainCamera.ScreenPointToRay(touchPosition), out hit))
                 {
-                    Debug.Log("Hit object: " + hit.collider.gameObject.name);
+                    //Debug.Log("Hit object: " + hit.collider.gameObject.name);
                     hitMesh = hit;
                     Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 8); //Arbitrary z value to keep the object visible
 
@@ -76,7 +76,7 @@ public class TouchInput : MonoBehaviour
             }
             if(currentTouch.phase == UnityEngine.InputSystem.TouchPhase.Ended || currentTouch.phase == UnityEngine.InputSystem.TouchPhase.None)
             {
-                Debug.Log("Touch ended or none.");  
+                //Debug.Log("Touch ended or none.");  
                 TouchBall.transform.position = new Vector3(0, -100, 0);
             }
 
