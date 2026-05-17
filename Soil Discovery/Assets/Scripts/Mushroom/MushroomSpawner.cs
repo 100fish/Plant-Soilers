@@ -38,8 +38,8 @@ public class MushroomSpawner : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
         int mushroomIndex = Random.Range(0, mushroomPrefabs.Count - 1);
         //Debug.Log("Spawning mushroom at: " + worldPos);
-        GameObject mushroom = Instantiate(mushroomPrefabs[mushroomIndex], worldPos, Quaternion.identity);
-        spawnedMushrooms.Add(mushroom);
+        //GameObject mushroom = Instantiate(mushroomPrefabs[mushroomIndex], worldPos, Quaternion.identity);
+        //spawnedMushrooms.Add(mushroom);
         isSpawning = false;
         //Debug.Log("Spawned mushroom at: " + worldPos);
     }

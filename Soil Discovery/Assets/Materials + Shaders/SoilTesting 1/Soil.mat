@@ -20,7 +20,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _TouchPos4
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CursorDisplace:
-        m_Texture: {fileID: 2800000, guid: a0c6b1bee90062144b3c177cbbdf257c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8e4d38d70795a844e8531dc8b75ec3e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -145,9 +145,19 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MousePosition: {r: 0.1530484, g: 0.58738405, b: 0, a: 0}
+    - _MousePosition: {r: 0.56519735, g: 0.5243814, b: 0, a: 0}
     - _MousePosition2: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TouchPos1: {r: 0.56105936, g: 0.572661, b: 0, a: 0}
+    - _TouchPos10: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos2: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos3: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos4: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos5: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos6: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos7: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos8: {r: -10, g: -10, b: 0, a: 0}
+    - _TouchPos9: {r: -10, g: -10, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1731988063525688390

@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class SoilMousePass : MonoBehaviour
 {
@@ -15,6 +17,17 @@ public class SoilMousePass : MonoBehaviour
     private float digTimer;
 
 
+    private Vector2 mousePositionOnObject;
+    private Vector2 lastPosition = new(0,0);
+
+    private Vector2 mousePosition;
+    private RenderTexture soilTex;
+
+    //Stores the IDs of the Shader property this script updates
+    private int[] touchPositionFields = new int[10];
+    private int[] bugPositionFields = new int[10];
+
+    private Vector2[] previousTouchPositions = new Vector2[10];
 
     private void OnEnable()
     {
@@ -33,23 +46,20 @@ public class SoilMousePass : MonoBehaviour
         playerControls = new SoilInput();
     }
 
-    //[SerializeField] private Texture startTexture;
-
-    [SerializeField] private bool UseTouchSphereInsteadOfRaycast = true;
-
-    private Vector2 mousePositionOnObject;
-    private Vector2 lastPosition = new(0,0);
-
-    private Vector2 mousePosition;
-    private RenderTexture soilTex;
-
-    //Stores the ID of the Shader property this script updates
-    int mousePositionField;
-
     void Start()
     {
         //Since we update this shader property ever frame its faster to get the ID
-        mousePositionField = Shader.PropertyToID("_MousePosition");
+        for (int i = 0; i < touchPositionFields.Length; i++)
+        {
+            touchPositionFields[i] = Shader.PropertyToID($"_TouchPos{i+1}");
+            Debug.Log(touchPositionFields[i]);
+        }
+
+        for (int i = 0; i < bugPositionFields.Length; i++)
+        {
+            bugPositionFields[i] = Shader.PropertyToID($"_BugPos{i + 1}");
+            Debug.Log(bugPositionFields[i]);
+        }
 
         //creates a new rendertexture that we use as the texture for the object 
         soilTex = new RenderTexture(new RenderTextureDescriptor(1024, 1024));
@@ -64,36 +74,16 @@ public class SoilMousePass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Get the mouse's position in Screenspace
-        mousePosition = Mouse.current.position.ReadValue();
-        Debug.Log(mousePosition);
 
         if (/*playerControls.Testing.Dig.inProgress &&*/ digTimer <= 0)
         {
-
-            if (UseTouchSphereInsteadOfRaycast == true)
-            {
                 //set position to ball's position
-                mousePositionOnObject = touchInput.hit.textureCoord;
+                mousePositionOnObject = touchInput.hitMesh.textureCoord;
+                
 
                 //Set the shader's mouseposition value to the mouse's position in screen space
                 SetMousePosition(mousePositionOnObject);
-            }
-            else
-            {
-                //Send a ray to find the mouse's position in local space
-                Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-                Debug.Log($"Ray = {ray}");
 
-
-                if (Physics.Raycast(ray, out RaycastHit hit))
-                {
-                    mousePositionOnObject = hit.textureCoord;
-                    Debug.Log($"Texcord = {mousePositionOnObject}");
-
-                    SetMousePosition(mousePositionOnObject);
-                }
-            }
 
             digTimer = digTimerMax;
         }
@@ -103,11 +93,45 @@ public class SoilMousePass : MonoBehaviour
         }
     }
 
+    //will be used once multitouch is set up
+    public void Dig(Vector2[] touchPositions, Vector2[] bugPositions)
+    {
+        //check if any touchs are the same
+        for (int i = 0; i < touchPositions.Length; i++)
+        {
+            for (int ii = 0; ii < previousTouchPositions.Length; ii++)
+            {
+                if (touchPositions[i] == previousTouchPositions[ii])
+                {
+                    touchPositions[i] = new Vector2(-10000, -10000);
+                }
+            }
+        }
+
+        //Set the touch positions in the shader and store them for the next frame's comparison
+        for (int i = 0; i < touchPositions.Length; i++)
+        {
+            soilMaterial.SetVector(touchPositionFields[i], touchPositions[i]);
+
+            previousTouchPositions[i] = touchPositions[i];
+        }
+
+        //implement bug digging later
+
+        //actually draw
+        RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
+        Graphics.Blit(soilTex, temp, soilMaterial);
+        Graphics.Blit(temp, soilTex);
+
+        RenderTexture.ReleaseTemporary(temp);
+    }
+
+    //will become defunct once multitouch is set up
     private void SetMousePosition(Vector2 mouseCoord)
     {
         if(mouseCoord != lastPosition)
         {
-            soilMaterial.SetVector(mousePositionField, mouseCoord);
+            soilMaterial.SetVector(touchPositionFields[0], mouseCoord);
 
             RenderTexture temp = RenderTexture.GetTemporary(1024, 1024);
             Graphics.Blit(soilTex, temp, soilMaterial);
