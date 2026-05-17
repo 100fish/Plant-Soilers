@@ -3,14 +3,13 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class SoilMousePass : MonoBehaviour
 {
     [SerializeField] private Material soilMaterial;
     [SerializeField] private Material visibleMaterial;
     [SerializeField] private TouchInput touchInput;
-
-
 
     private SoilInput playerControls;
 
@@ -79,6 +78,11 @@ public class SoilMousePass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (playerControls.Testing.Restart.triggered)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         if (/*playerControls.Testing.Dig.inProgress &&*/ digTimer <= 0)
         {

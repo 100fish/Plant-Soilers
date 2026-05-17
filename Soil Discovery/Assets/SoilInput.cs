@@ -100,6 +100,15 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1b994bc-50d6-4d75-8fc4-26a0340df883"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -113,6 +122,17 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
                     ""action"": ""Dig"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4ab965f-74c8-4ef2-87b8-157dbff7b9fe"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
         // Testing
         m_Testing = asset.FindActionMap("Testing", throwIfNotFound: true);
         m_Testing_Dig = m_Testing.FindAction("Dig", throwIfNotFound: true);
+        m_Testing_Restart = m_Testing.FindAction("Restart", throwIfNotFound: true);
     }
 
     ~@SoilInput()
@@ -203,6 +224,7 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Testing;
     private List<ITestingActions> m_TestingActionsCallbackInterfaces = new List<ITestingActions>();
     private readonly InputAction m_Testing_Dig;
+    private readonly InputAction m_Testing_Restart;
     /// <summary>
     /// Provides access to input actions defined in input action map "Testing".
     /// </summary>
@@ -218,6 +240,10 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Testing/Dig".
         /// </summary>
         public InputAction @Dig => m_Wrapper.m_Testing_Dig;
+        /// <summary>
+        /// Provides access to the underlying input action "Testing/Restart".
+        /// </summary>
+        public InputAction @Restart => m_Wrapper.m_Testing_Restart;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -247,6 +273,9 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
             @Dig.started += instance.OnDig;
             @Dig.performed += instance.OnDig;
             @Dig.canceled += instance.OnDig;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         /// <summary>
@@ -261,6 +290,9 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
             @Dig.started -= instance.OnDig;
             @Dig.performed -= instance.OnDig;
             @Dig.canceled -= instance.OnDig;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         /// <summary>
@@ -308,5 +340,12 @@ public partial class @SoilInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDig(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Restart" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRestart(InputAction.CallbackContext context);
     }
 }

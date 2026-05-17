@@ -205,7 +205,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16106719}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -269,6 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae033736fb9cf5478faaf8f8cb71ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomDrag
+  emptyMushroomPrefabs:
+  - {fileID: 1072795162}
+  - {fileID: 1543058596}
+  - {fileID: 1400372528}
 --- !u!54 &20105896
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -833,7 +837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562, y: 588}
+  m_AnchoredPosition: {x: 223, y: 109.99997}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &42277191
@@ -1375,7 +1379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562, y: 588}
+  m_AnchoredPosition: {x: 223, y: 109.99997}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &224486710
@@ -2022,7 +2026,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525490542}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2784,6 +2788,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae033736fb9cf5478faaf8f8cb71ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomDrag
+  emptyMushroomPrefabs:
+  - {fileID: 1072795162}
+  - {fileID: 1543058596}
+  - {fileID: 1400372528}
 --- !u!54 &752549668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3018,7 +3026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562, y: 588}
+  m_AnchoredPosition: {x: 223, y: 109.99997}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &911780701
@@ -3827,6 +3835,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae033736fb9cf5478faaf8f8cb71ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomDrag
+  emptyMushroomPrefabs:
+  - {fileID: 1072795162}
+  - {fileID: 1543058596}
+  - {fileID: 1400372528}
 --- !u!1 &1083614265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3925,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083614265}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4175,7 +4187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562, y: 588}
+  m_AnchoredPosition: {x: 223, y: 109.99997}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1156578124
@@ -4325,6 +4337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae033736fb9cf5478faaf8f8cb71ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomDrag
+  emptyMushroomPrefabs:
+  - {fileID: 1072795162}
+  - {fileID: 1543058596}
+  - {fileID: 1400372528}
 --- !u!54 &1175004421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4950,6 +4966,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae033736fb9cf5478faaf8f8cb71ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomDrag
+  emptyMushroomPrefabs:
+  - {fileID: 1072795162}
+  - {fileID: 1543058596}
+  - {fileID: 1400372528}
 --- !u!54 &1388617950
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5152,7 +5172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562, y: 588}
+  m_AnchoredPosition: {x: 223, y: 110}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1680266475
@@ -5198,7 +5218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562, y: 588}
+  m_AnchoredPosition: {x: 223, y: 109.99997}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1706185146
@@ -5580,7 +5600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423200e3f5eebc42ae4d8a52583c0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomSpawner
-  mushroomPrefabs: []
+  mushroomPrefabs:
+  - {fileID: 1072795162}
+  - {fileID: 1543058596}
+  - {fileID: 1400372528}
 --- !u!1 &1778681248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,7 +5817,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779571764}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -6804,7 +6827,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022459037}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -7018,7 +7041,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131778365}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -7067,7 +7090,6 @@ MonoBehaviour:
   visibleMaterial: {fileID: 2100000, guid: f05d00f53a10e5349aa9f653a6648ce0, type: 2}
   touchInput: {fileID: 1576504084}
   digTimerMax: 0.001
-  UseTouchSphereInsteadOfRaycast: 1
 --- !u!4 &2144021431
 Transform:
   m_ObjectHideFlags: 0
