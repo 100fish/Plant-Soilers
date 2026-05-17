@@ -7,6 +7,9 @@ public class PathFollow : MonoBehaviour
     public Camera mainCamera;
 
     [SerializeField]
+    private SoilMousePass soilManager;
+
+    [SerializeField]
     private Transform[] pathsToFollow;
 
     public float startOffsetSeconds;
@@ -39,12 +42,22 @@ public class PathFollow : MonoBehaviour
         {
             StartCoroutine(RandomWait());
         }
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward * -1, out hit))
+        {
+            Vector2 MeshHitBug = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
+            BugManager.Instance.BugPositionList.Add(MeshHitBug);
+        }
+
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Collision detected with: " + other.gameObject.tag);
-        if (other.gameObject.CompareTag("TOUCH") && !caught)
+        if (other.gameObject.CompareTag("TOUCH") && !caught /* && soilManager.someVariable == true */)
         {
             caught = true;
             timeFloat = 0f;

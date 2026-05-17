@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BUG
   - TOUCH
+  - SHROOM
   layers:
   - Default
   - TransparentFX

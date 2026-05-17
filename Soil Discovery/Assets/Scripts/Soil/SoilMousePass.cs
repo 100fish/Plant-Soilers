@@ -74,10 +74,10 @@ public class SoilMousePass : MonoBehaviour
 
             if (UseTouchSphereInsteadOfRaycast == false)
             {
-                Debug.Log("Using raycast to find mouse position");
+                //Debug.Log("Using raycast to find mouse position");
                 //set position to ball's position
                 Vector2 touchPosition = TouchInput.Instance.hitMesh.textureCoord;
-                Debug.Log("Mouse position on object: " + touchPosition);
+                //Debug.Log("Mouse position on object: " + touchPosition);
                 //Set the shader's mouseposition value to the mouse's position in screen space
                 SetMousePosition(touchPosition);
                 
