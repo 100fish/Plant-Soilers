@@ -32,6 +32,8 @@ public class SoilMousePass : MonoBehaviour
     private Vector2[] touchPositions = new Vector2[10];
 
     private Vector2[] previousTouchPositions = new Vector2[10];
+    private Vector2[] previousBugPositions = new Vector2[10];
+
 
     private void OnEnable()
     {
@@ -90,7 +92,6 @@ public class SoilMousePass : MonoBehaviour
             touchPositions[0] = touchInput.hitMesh.textureCoord;
 
 
-
             //touchPositions[0] = Mouse.current.position;
 
             //Set the shader's mouseposition value to the mouse's position in screen space
@@ -111,7 +112,7 @@ public class SoilMousePass : MonoBehaviour
     private void Dig(Vector2[] touchPositions)
     {
         //check if any touchs are the same
-        for (int i = 0; i < touchPositions.Length; i++)
+        /*for (int i = 0; i < touchPositions.Length; i++)
         {
             for (int ii = 0; ii < previousTouchPositions.Length; ii++)
             {
@@ -120,13 +121,20 @@ public class SoilMousePass : MonoBehaviour
                     touchPositions[i] = new Vector2(0, 0);
                 }
             }
-        }
+        } */
 
         //Set the touch positions in the shader and store them for the next frame's comparison
         for (int i = 0; i < touchPositions.Length; i++)
         {
-            //Debug.Log(touchPositions[i] + "and touch number is: " + i);
-            soilMaterial.SetVector(touchPositionFields[i], touchPositions[i]);
+
+            if (null == previousTouchPositions[i] || touchPositions[i] != previousTouchPositions[i])
+            {
+                soilMaterial.SetVector(touchPositionFields[i], touchPositions[i]);
+            }
+            else
+            {
+                soilMaterial.SetVector(touchPositionFields[i], Vector4.zero);
+            }
 
             previousTouchPositions[i] = touchPositions[i];
         }
@@ -134,13 +142,22 @@ public class SoilMousePass : MonoBehaviour
         Vector2[] bugPositions = BugManager.Instance.GetBugPositionArray();
         //Set the bug positions in the shader and store them for the next frame's comparison
 
-        Debug.Log(bugPositions.Length);
-        Debug.Log(bugPositionFields.Length);
+        //Debug.Log(bugPositions.Length);
+        //Debug.Log(bugPositionFields.Length);
 
         for (int i = 0; i < bugPositions.Length; i++)
         {
-            //Debug.Log(bugPositions[i] + "and bug number is: " + i);
-            soilMaterial.SetVector(bugPositionFields[i], bugPositions[i]);
+
+            if (null == previousBugPositions[i] || bugPositions[i] != previousBugPositions[i])
+            {
+                soilMaterial.SetVector(bugPositionFields[i], bugPositions[i]);
+            }
+            else
+            {
+                soilMaterial.SetVector(bugPositionFields[i], Vector2.zero);
+            }
+
+            previousBugPositions[i] = bugPositions[i];
         }
 
         //actually draw
@@ -151,7 +168,6 @@ public class SoilMousePass : MonoBehaviour
 
         for (int i = 0; i < currentTouchValues.Length; i++)
         {
-
             Color tempColor = GetPixelFromRT(temp, Mathf.RoundToInt(touchPositions[i].x), Mathf.RoundToInt(touchPositions[i].y));
 
             currentTouchValues[i] = tempColor.r;

@@ -69,6 +69,8 @@ public class TouchInput : MonoBehaviour
             touchesList[i] = currentTouch.touchId;
             //Debug.Log("6");
             GameObject TouchBall = touchBalls[i];
+            Debug.Log("TB Start Pos: " + TouchBall.transform.position);
+
             //Debug.Log("7");
             //Debug.Log(currentTouch);
 
@@ -85,6 +87,12 @@ public class TouchInput : MonoBehaviour
                     Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 8); //Arbitrary z value to keep the object visible
 
                     TouchBall.transform.position = touchSpotZFix;
+
+                    Debug.Log("TB Y Scale = " + TouchBall.transform.localScale.y);
+
+                    Debug.Log("TB Mid Pos: " + TouchBall.transform.position);
+
+                    Debug.Log("TSZF: " + touchSpotZFix);
                 }
             }
             if(currentTouch.phase == UnityEngine.InputSystem.TouchPhase.Ended || currentTouch.phase == UnityEngine.InputSystem.TouchPhase.None)
@@ -118,6 +126,8 @@ public class TouchInput : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("TB End Pos: " + TouchBall.transform.position);
+
         }
     }
 }
