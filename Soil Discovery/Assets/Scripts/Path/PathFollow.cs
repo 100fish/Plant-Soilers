@@ -180,7 +180,7 @@ public class PathFollow : MonoBehaviour
         canvasPanelTransform.anchoredPosition = new Vector2(screenPos.x, screenPos.y);
 
         //Wait 2 sconds, then disable the bug and canvas visibility
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         spriteRenderer.enabled = false;
         bugInfoCanvas.enabled = false;
     }

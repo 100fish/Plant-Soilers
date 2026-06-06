@@ -9,12 +9,10 @@ public class MushroomSpawner : MonoBehaviour
     private bool isSpawning = false;
     public List<GameObject> spawnedMushrooms = new List<GameObject>();
     public static MushroomSpawner Instance;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject dummyShroom = new GameObject("DummyShroom");
-
         Instance = this;
         spawnedMushrooms.Add(dummyShroom);
     }
@@ -45,7 +43,7 @@ public class MushroomSpawner : MonoBehaviour
         Vector3 screenPos = new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), distance);
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
         Vector3 worldPosZFix = new Vector3(worldPos.x, worldPos.y, 7.9f); //Arbitrary z value to keep the object visible
-        int mushroomIndex = Random.Range(0, mushroomPrefabs.Count - 1);
+        int mushroomIndex = Random.Range(0, 5); //count no working for some reason, so hardcoding 5 for now since we have 5 mushroom prefabs
         //Debug.Log("Spawning mushroom at: " + worldPos);
         GameObject mushroom = Instantiate(mushroomPrefabs[mushroomIndex], worldPosZFix, Quaternion.identity);
         //spawnedMushrooms.Add(mushroom);
