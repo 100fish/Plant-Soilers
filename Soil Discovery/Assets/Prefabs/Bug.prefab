@@ -203,8 +203,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hi, I'm a dragon springtail, the cleaner of the soil! I eat fungi and decaying
-    plants, speeding up the decomposition rate of organic matte.
+  m_text: "Hi, I'm a pseudoscorpion. Don't let my small size fool you\u2014I'm a
+    carnivore!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1900d304b8e810b42af063df92096517, type: 2}
   m_sharedMaterial: {fileID: -931238016758308409, guid: 1900d304b8e810b42af063df92096517, type: 2}
@@ -231,12 +231,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
+  m_fontSize: 98.1
   m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 75
+  m_fontSizeMin: 75
+  m_fontSizeMax: 100
   m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -322,7 +322,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4768803363801930458}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -529,6 +529,8 @@ GameObject:
   - component: {fileID: 5539257568422150370}
   - component: {fileID: 3270990003525761545}
   - component: {fileID: 6900216449476853767}
+  - component: {fileID: 5423095815946322795}
+  - component: {fileID: 4950961862186901177}
   m_Layer: 0
   m_Name: Bug
   m_TagString: BUG
@@ -562,7 +564,7 @@ Animator:
   m_GameObject: {fileID: 8078734713088209028}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d08dec911aa0453459818ece7c87b9db, type: 2}
+  m_Controller: {fileID: 9100000, guid: 22115d1bd89ea444f997e51d0c0b0740, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -605,21 +607,21 @@ MonoBehaviour:
   - {fileID: 1695294695, guid: 9ad330012a9a269418c53dd147caee90, type: 3}
   - {fileID: 145978796, guid: 9b34eced9802ad245a79a131e34d7b97, type: 3}
   - {fileID: -891647806, guid: c32b56d7cbafcac439a0337bf6a1e2a2, type: 3}
-  - {fileID: 21300000, guid: 82f4aa04cb79af3408c2777fd91d4795, type: 3}
+  - {fileID: -1279696071, guid: 8e132eba785f65444a3aefb2c8f7a259, type: 3}
   - {fileID: 21300000, guid: 31cbaa0c55ce47144b3d96dfcda99cf9, type: 3}
   - {fileID: 21300000, guid: a17ee7e878e82de4097a4f6e553c603f, type: 3}
   bugAnimations:
   - {fileID: 7400000, guid: 76c4ba9561896ce4b81a2514a7ad78de, type: 2}
   - {fileID: 7400000, guid: f5a7c8c63158e624d9d80b32d60f230a, type: 2}
   - {fileID: 7400000, guid: 5ec425c64aae8d64aa4162e2e45b339a, type: 2}
-  - {fileID: 7400000, guid: 1741ec364c03f3142aaa4692ced5df8d, type: 2}
+  - {fileID: 7400000, guid: ee65445334c96fd4bb4d72cb72dbbf9d, type: 2}
   - {fileID: 7400000, guid: 1741ec364c03f3142aaa4692ced5df8d, type: 2}
   - {fileID: 7400000, guid: d447433519bfc174bb6d2b93ab4b1c94, type: 2}
   bugAnimatorControllers:
   - {fileID: 9100000, guid: d08dec911aa0453459818ece7c87b9db, type: 2}
   - {fileID: 9100000, guid: 636839cc95e372348ae370a7fbf19c8b, type: 2}
   - {fileID: 9100000, guid: 3249899cc9c63e24cb732c52062d3465, type: 2}
-  - {fileID: 9100000, guid: af3f1282bf6be6244b5ede5191eb5b87, type: 2}
+  - {fileID: 9100000, guid: 22115d1bd89ea444f997e51d0c0b0740, type: 2}
   - {fileID: 9100000, guid: af3f1282bf6be6244b5ede5191eb5b87, type: 2}
   - {fileID: 9100000, guid: 10dde4a60a7ad96429f8bdd98eb955c8, type: 2}
   bugFacts:
@@ -730,3 +732,48 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5423095815946322795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078734713088209028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -895815204
+      Data2: 1143426423
+      Data3: 2022087075
+      Data4: 254235704
+    Path: event:/Bug Noises
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: LoopGravel
+    Value: 0
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 24.5
+--- !u!114 &4950961862186901177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078734713088209028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f8eb9b373b9d042bb7356d18824df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioHandler

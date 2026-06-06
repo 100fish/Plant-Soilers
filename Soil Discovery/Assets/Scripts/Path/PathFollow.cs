@@ -25,7 +25,7 @@ public class PathFollow : MonoBehaviour
     private float speedFloat;
 
     public bool canBeginPath;
-    private bool caught = false;
+    public bool caught { get; private set; } = false;
 
     private SpriteRenderer spriteRenderer;
     private Animation animation;
@@ -36,6 +36,7 @@ public class PathFollow : MonoBehaviour
     private TextMeshProUGUI canvasPanelHeader;
     private TextMeshProUGUI canvasPanelText;    
     private Image canvasPanelBackground;
+    private AudioHandler audioHandler;
 
     [SerializeField]
     private Sprite[] bugSprites;
@@ -53,7 +54,8 @@ public class PathFollow : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animation = GetComponent<Animation>();
         animator = GetComponent<Animator>();
-        
+        audioHandler = GetComponent<AudioHandler>();
+
         bugInfoCanvas = transform.GetChild(0).GetComponent<Canvas>();
         canvasPanel = transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
         canvasPanelBackground = canvasPanel.GetChild(0).GetComponent<Image>();
@@ -82,6 +84,7 @@ public class PathFollow : MonoBehaviour
     {
         if (canBeginPath)
         {
+            audioHandler.FadeInSound();
             ChooseRandomProfile();
             StartCoroutine(RandomWait());
         }
@@ -132,6 +135,7 @@ public class PathFollow : MonoBehaviour
     private IEnumerator FollowPath()
     {
         spriteRenderer.enabled = true;
+        caught = false;
 
         Vector2 p0 = pathsToFollow[pathCurrent].GetChild(0).position;
         Vector2 p1 = pathsToFollow[pathCurrent].GetChild(1).position;
@@ -154,7 +158,9 @@ public class PathFollow : MonoBehaviour
         }
 
         timeFloat = 0f;
-
+        
+        audioHandler.FadeOutSound();
+        
         pathCurrent = Random.Range(0, pathsToFollow.Length);
 
         canBeginPath = true;
@@ -162,10 +168,11 @@ public class PathFollow : MonoBehaviour
 
     private IEnumerator CaughtBug()
     {
+        audioHandler.StopSoundImmediate();
         //Set text pop up to show fun fact about bug
         //canvasPanelHeader.text = "Fun Fact!"; I like bug got!
         canvasPanelText.text = funFact;
-
+        Debug.Log("CaughtBUGGGGGGGG");
         //activate popup canvas and locate it above bug
         bugInfoCanvas.enabled = true;
         RectTransform canvasPanelTransform = canvasPanel.GetComponent<RectTransform>();

@@ -19,8 +19,9 @@ public class DecayScript : MonoBehaviour
     private IEnumerator Decay()
     {
         yield return new WaitForSeconds(5f);
-        if (MushroomSpawner.Instance.spawnedMushrooms.Count > 1)
+        if (MushroomSpawner.Instance.spawnedMushrooms.Count > 2)
         {
+            MushroomSpawner.Instance.spawnedMushrooms.Remove(gameObject);
             Destroy(gameObject);
         }
         else
