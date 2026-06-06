@@ -1,7 +1,8 @@
 using Unity.VisualScripting;
-using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine;
+using UnityEngine.Device;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
@@ -33,6 +34,9 @@ public class SoilMousePass : MonoBehaviour
     private Vector2[] previousTouchPositions = new Vector2[10];
     private Vector2[] previousBugPositions = new Vector2[10];
 
+    public float[,] fakeRenderTexture = new float[102,102];
+
+    //scrapped but keeping
     Texture2D fullTex;
 
     private void OnEnable()
@@ -55,6 +59,15 @@ public class SoilMousePass : MonoBehaviour
     void Start()
     {
         fullTex = new Texture2D(1024, 1024);
+
+        for (int y = 0; y < fakeRenderTexture.GetLength(0); y++)
+        {
+            for (int x = 0; x < fakeRenderTexture.GetLength(1); x++)
+            {
+                fakeRenderTexture[x, y] = 1;
+            }
+
+        }
 
         //Since we update this shader property ever frame its faster to get the ID
         for (int i = 0; i < touchPositionFields.Length; i++)
@@ -121,6 +134,17 @@ public class SoilMousePass : MonoBehaviour
             if (null == previousTouchPositions[i] || touchPositions[i] != previousTouchPositions[i])
             {
                 soilMaterial.SetVector(touchPositionFields[i], touchPositions[i]);
+
+
+                fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)] -= 0.05f;
+
+                if (fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)] < 0)
+                {
+                    //fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)] = 0;
+                }
+
+                Debug.Log($"{i}th fake depth at: x{touchPositions[i].x} y{touchPositions[i].y} is: {fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)]}");
+
             }
             else
             {
@@ -139,6 +163,8 @@ public class SoilMousePass : MonoBehaviour
             if (null == previousBugPositions[i] || bugPositions[i] != previousBugPositions[i])
             {
                 soilMaterial.SetVector(bugPositionFields[i], bugPositions[i]);
+                fakeRenderTexture[(int)touchPositions[i].x, (int)touchPositions[i].y] -= 0.1f;
+
             }
             else
             {

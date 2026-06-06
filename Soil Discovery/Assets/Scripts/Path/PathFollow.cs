@@ -149,6 +149,7 @@ public class PathFollow : MonoBehaviour
         instance.transform.GetChild(0).GetComponent<Canvas>().enabled = false;
     }
 
+    //new functions from griff
     private void ChooseRandomProfile()
     {
         int randomBugType = Random.Range(0, 5);
