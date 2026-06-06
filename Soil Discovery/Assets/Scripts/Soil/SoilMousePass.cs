@@ -135,15 +135,16 @@ public class SoilMousePass : MonoBehaviour
             {
                 soilMaterial.SetVector(touchPositionFields[i], touchPositions[i]);
 
+                Vector2 tempCoords = new((int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102));
 
-                fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)] -= 0.05f;
+                fakeRenderTexture[(int)tempCoords.x, (int)tempCoords.y] -= 0.05f;
 
-                if (fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)] < 0)
+                if (fakeRenderTexture[(int)tempCoords.x, (int)tempCoords.y] < 0)
                 {
                     //fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)] = 0;
                 }
 
-                Debug.Log($"{i}th fake depth at: x{touchPositions[i].x} y{touchPositions[i].y} is: {fakeRenderTexture[(int)(touchPositions[i].x * 102), (int)(touchPositions[i].y * 102)]}");
+                Debug.Log($"{i}th fake depth at: x{touchPositions[i].x} y{touchPositions[i].y} is: {fakeRenderTexture[(int)tempCoords.x, (int)tempCoords.y]}");
 
             }
             else

@@ -858,6 +858,7 @@ GameObject:
   - component: {fileID: 493468926}
   - component: {fileID: 493468925}
   - component: {fileID: 493468924}
+  - component: {fileID: 493468929}
   m_Layer: 0
   m_Name: TouchBall (2)
   m_TagString: TOUCH
@@ -900,7 +901,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 110}
-  m_Center: {x: 0, y: 0, z: -54}
+  m_Center: {x: 0, y: 0, z: -55}
 --- !u!114 &493468925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1002,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493468922}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &493468929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493468922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbefd1e5810192b4ab9a7c4f33075cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchTimeout
+  caughtSomething: 0
+  timeoutSeconds: 2
 --- !u!1001 &494895784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1355,6 +1370,7 @@ GameObject:
   - component: {fileID: 593829312}
   - component: {fileID: 593829311}
   - component: {fileID: 593829310}
+  - component: {fileID: 593829315}
   m_Layer: 0
   m_Name: TouchBall (4)
   m_TagString: TOUCH
@@ -1397,7 +1413,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 110}
-  m_Center: {x: 0, y: 0, z: -54}
+  m_Center: {x: 0, y: 0, z: -55}
 --- !u!114 &593829311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,6 +1514,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593829308}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &593829315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593829308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbefd1e5810192b4ab9a7c4f33075cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchTimeout
+  caughtSomething: 0
+  timeoutSeconds: 2
 --- !u!1 &601380435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2071,7 @@ GameObject:
   - component: {fileID: 1035206417}
   - component: {fileID: 1035206416}
   - component: {fileID: 1035206415}
+  - component: {fileID: 1035206420}
   m_Layer: 0
   m_Name: TouchBall (1)
   m_TagString: TOUCH
@@ -2083,7 +2114,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 110}
-  m_Center: {x: 0, y: 0, z: -54}
+  m_Center: {x: 0, y: 0, z: -55}
 --- !u!114 &1035206416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,6 +2215,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035206413}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1035206420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035206413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbefd1e5810192b4ab9a7c4f33075cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchTimeout
+  caughtSomething: 0
+  timeoutSeconds: 2
 --- !u!1 &1042071432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2243,7 @@ GameObject:
   - component: {fileID: 1042071436}
   - component: {fileID: 1042071435}
   - component: {fileID: 1042071434}
+  - component: {fileID: 1042071439}
   m_Layer: 0
   m_Name: TouchBall (3)
   m_TagString: TOUCH
@@ -2240,7 +2286,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 110}
-  m_Center: {x: 0, y: 0, z: -54}
+  m_Center: {x: 0, y: 0, z: -55}
 --- !u!114 &1042071435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2341,6 +2387,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042071432}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1042071439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042071432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbefd1e5810192b4ab9a7c4f33075cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchTimeout
+  caughtSomething: 0
+  timeoutSeconds: 2
 --- !u!1 &1072795162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2531675877191134958, guid: 73f896325e10bc642b2a3d8f60bd057a, type: 3}
@@ -2360,6 +2420,7 @@ GameObject:
   - component: {fileID: 1082432980}
   - component: {fileID: 1082432981}
   - component: {fileID: 1082432982}
+  - component: {fileID: 1082432983}
   m_Layer: 0
   m_Name: TouchBall
   m_TagString: TOUCH
@@ -2502,7 +2563,21 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 110}
-  m_Center: {x: 0, y: 0, z: -54}
+  m_Center: {x: 0, y: 0, z: -55}
+--- !u!114 &1082432983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082432975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbefd1e5810192b4ab9a7c4f33075cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchTimeout
+  caughtSomething: 0
+  timeoutSeconds: 2
 --- !u!4 &1105345250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1beee42050e239042b1acf26f274b434, type: 3}
