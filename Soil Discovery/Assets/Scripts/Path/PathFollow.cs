@@ -132,6 +132,7 @@ public class PathFollow : MonoBehaviour
     private IEnumerator FollowPath()
     {
         spriteRenderer.enabled = true;
+        caught = false;
 
         Vector2 p0 = pathsToFollow[pathCurrent].GetChild(0).position;
         Vector2 p1 = pathsToFollow[pathCurrent].GetChild(1).position;
