@@ -7,8 +7,11 @@ public class DecayScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MushroomSpawner.Instance.spawnedMushrooms.Add(gameObject);
-        StartCoroutine(Decay());
+        if (MushroomSpawner.Instance != null)
+        {
+            MushroomSpawner.Instance.spawnedMushrooms.Add(gameObject);
+            StartCoroutine(Decay());
+        }
     }
 
     // Update is called once per frame

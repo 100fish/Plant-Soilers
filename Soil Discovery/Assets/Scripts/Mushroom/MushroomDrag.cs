@@ -74,7 +74,7 @@ public class MushroomDrag : MonoBehaviour
                 {
                     lastDrop = currentDrop;
                     Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, 7.9f); //Arbitrary z value to keep the object visible
-                    Instantiate(emptyMushroomPrefabs[Random.Range(0, emptyMushroomPrefabs.Count - 1)], spawnPos, Quaternion.identity);
+                    Instantiate(emptyMushroomPrefabs[Random.Range(0, 5)], spawnPos, Quaternion.identity); //hardcoded to 5 casue count not working for some reason, but we have 5 mushroom prefabs
                 }
 
             }
