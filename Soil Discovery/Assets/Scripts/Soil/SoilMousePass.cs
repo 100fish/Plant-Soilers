@@ -16,7 +16,6 @@ public class SoilMousePass : MonoBehaviour
     [SerializeField] private float digTimerMax;
     private float digTimer;
 
-
     private Vector2 mousePositionOnObject;
     private Vector2 lastPosition = new(0,0);
 
@@ -34,6 +33,7 @@ public class SoilMousePass : MonoBehaviour
     private Vector2[] previousTouchPositions = new Vector2[10];
     private Vector2[] previousBugPositions = new Vector2[10];
 
+    Texture2D fullTex;
 
     private void OnEnable()
     {
@@ -54,6 +54,8 @@ public class SoilMousePass : MonoBehaviour
 
     void Start()
     {
+        fullTex = new Texture2D(1024, 1024);
+
         //Since we update this shader property ever frame its faster to get the ID
         for (int i = 0; i < touchPositionFields.Length; i++)
         {
@@ -111,17 +113,6 @@ public class SoilMousePass : MonoBehaviour
     //will be used once multitouch is set up
     private void Dig(Vector2[] touchPositions)
     {
-        //check if any touchs are the same
-        /*for (int i = 0; i < touchPositions.Length; i++)
-        {
-            for (int ii = 0; ii < previousTouchPositions.Length; ii++)
-            {
-                if (touchPositions[i] == previousTouchPositions[ii])
-                {
-                    touchPositions[i] = new Vector2(0, 0);
-                }
-            }
-        } */
 
         //Set the touch positions in the shader and store them for the next frame's comparison
         for (int i = 0; i < touchPositions.Length; i++)
@@ -141,9 +132,6 @@ public class SoilMousePass : MonoBehaviour
 
         Vector2[] bugPositions = BugManager.Instance.GetBugPositionArray();
         //Set the bug positions in the shader and store them for the next frame's comparison
-
-        //Debug.Log(bugPositions.Length);
-        //Debug.Log(bugPositionFields.Length);
 
         for (int i = 0; i < bugPositions.Length; i++)
         {
@@ -166,36 +154,27 @@ public class SoilMousePass : MonoBehaviour
         Graphics.Blit(temp, soilTex);
 
 
-        for (int i = 0; i < currentTouchValues.Length; i++)
+        /*for (int i = 0; i < currentTouchValues.Length; i++)
         {
-            Color tempColor = GetPixelFromRT(temp, Mathf.RoundToInt(touchPositions[i].x), Mathf.RoundToInt(touchPositions[i].y));
+            Color tempColor = GetPixelFromRT(temp, Mathf.RoundToInt((int)touchPositions[i].x), Mathf.RoundToInt((int)touchPositions[i].y));
+            Debug.Log($"{i}th Position at: x{Mathf.RoundToInt((int)touchPositions[i].x)} y{Mathf.RoundToInt((int)touchPositions[i].y)} is {tempColor.b}");
 
-            currentTouchValues[i] = tempColor.r;
-        }
+            //currentTouchValues[i] = tempColor.r;
+        }*/
 
         RenderTexture.ReleaseTemporary(temp);
     }
 
     public Color GetPixelFromRT(RenderTexture rt, int x, int y)
     {
-        // Remember current active RT to restore later
-        RenderTexture currentActiveRT = RenderTexture.active;
-
-        // Set target RT as active
         RenderTexture.active = rt;
 
-        // Create a 1x1 Texture2D to hold just the single pixel (saves memory)
-        Texture2D tex = new Texture2D(1, 1, TextureFormat.RGB24, false);
+        //Texture2D.ReadPixels(new Rect(0, 0, rt.width, rt.height),0, 0);
 
-        // Read the specific pixel at (x, y) into the 1x1 texture
-        tex.ReadPixels(new Rect(x, y, 1, 1), 0, 0);
-        tex.Apply();
+        fullTex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+        fullTex.Apply();
 
-        // Restore the previous active RT
-        RenderTexture.active = currentActiveRT;
-
-        Color pixelColor = tex.GetPixel(0, 0);
-        Destroy(tex);
+        Color pixelColor = fullTex.GetPixel(x, y);
 
         return pixelColor;
     }
