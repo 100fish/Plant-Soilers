@@ -2,6 +2,8 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PathFollow : MonoBehaviour
 {
@@ -24,11 +26,16 @@ public class PathFollow : MonoBehaviour
 
     public bool canBeginPath;
     private bool caught = false;
-    private GameObject instance;
 
     private SpriteRenderer spriteRenderer;
     private Animation animation;
     private Animator animator;
+    private string funFact;
+    private Canvas bugInfoCanvas;
+    private RectTransform canvasPanel;
+    private TextMeshProUGUI canvasPanelHeader;
+    private TextMeshProUGUI canvasPanelText;    
+    private Image canvasPanelBackground;
 
     [SerializeField]
     private Sprite[] bugSprites;
@@ -36,6 +43,8 @@ public class PathFollow : MonoBehaviour
     private AnimationClip[] bugAnimations;
     [SerializeField]
     private AnimatorController[] bugAnimatorControllers;
+    [SerializeField]
+    private string[] bugFacts;
 
 
     private void Start()
@@ -44,11 +53,16 @@ public class PathFollow : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animation = GetComponent<Animation>();
         animator = GetComponent<Animator>();
+        
+        bugInfoCanvas = transform.GetChild(0).GetComponent<Canvas>();
+        canvasPanel = transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
+        canvasPanelBackground = canvasPanel.GetChild(0).GetComponent<Image>();
+        canvasPanelHeader = canvasPanel.GetChild(1).GetComponent<TextMeshProUGUI>();
+        canvasPanelText = canvasPanel.GetChild(2).GetComponent<TextMeshProUGUI>();
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         soilManager = GameObject.FindGameObjectWithTag("SoilManager").GetComponent<SoilMousePass>();
 
-        instance = this.gameObject; //??
         pathCurrent = 0;
         timeFloat = 0f;
         //canBeginPath = true;
@@ -86,13 +100,19 @@ public class PathFollow : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Collision detected with: " + other.gameObject.tag);
-        if (other.gameObject.CompareTag("TOUCH") && !caught /* && soilManager.someVariable == true */)
+        GameObject collidedTouchBall = other.gameObject;
+        if (collidedTouchBall.CompareTag("TOUCH") && !caught /* && soilManager.someVariable == true */)
         {
-            caught = true;
-            timeFloat = 0f;
-            canBeginPath = false;
-            StopCoroutine(FollowPath());
-            StartCoroutine(CaughtBug());
+            if(collidedTouchBall.GetComponent<TouchTimeout>().canCatch == true)
+            {
+                Debug.Log("Collided with TOUCH and can catch is true. Catching bug.");
+                collidedTouchBall.GetComponent<TouchTimeout>().caughtSomething = true;
+                caught = true;
+                timeFloat = 0f;
+                canBeginPath = false;
+                StopCoroutine(FollowPath());
+                StartCoroutine(CaughtBug());
+            }
         }
     }
 
@@ -111,6 +131,8 @@ public class PathFollow : MonoBehaviour
     }
     private IEnumerator FollowPath()
     {
+        spriteRenderer.enabled = true;
+
         Vector2 p0 = pathsToFollow[pathCurrent].GetChild(0).position;
         Vector2 p1 = pathsToFollow[pathCurrent].GetChild(1).position;
         Vector2 p2 = pathsToFollow[pathCurrent].GetChild(2).position;
@@ -140,15 +162,23 @@ public class PathFollow : MonoBehaviour
 
     private IEnumerator CaughtBug()
     {
-        transform.GetChild(0).GetComponent<Canvas>().enabled = true;
-        RectTransform panelRect = transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
-        Vector3 screenPos = mainCamera.WorldToScreenPoint(instance.transform.position);
-        panelRect.anchoredPosition = new Vector2(screenPos.x, screenPos.y);
+        //Set text pop up to show fun fact about bug
+        //canvasPanelHeader.text = "Fun Fact!"; I like bug got!
+        canvasPanelText.text = funFact;
+
+        //activate popup canvas and locate it above bug
+        bugInfoCanvas.enabled = true;
+        RectTransform canvasPanelTransform = canvasPanel.GetComponent<RectTransform>();
+        Vector3 screenPos = mainCamera.WorldToScreenPoint(transform.position);
+        canvasPanelTransform.anchoredPosition = new Vector2(screenPos.x, screenPos.y);
+
+        //Wait 2 sconds, then disable the bug and canvas visibility
         yield return new WaitForSeconds(2f);
-        instance.GetComponent<SpriteRenderer>().enabled = false;
-        instance.transform.GetChild(0).GetComponent<Canvas>().enabled = false;
+        spriteRenderer.enabled = false;
+        bugInfoCanvas.enabled = false;
     }
 
+    //new functions from griff
     private void ChooseRandomProfile()
     {
         int randomBugType = Random.Range(0, 5);
@@ -156,6 +186,7 @@ public class PathFollow : MonoBehaviour
         spriteRenderer.sprite = bugSprites[randomBugType];
         animation.clip = bugAnimations[randomBugType];
         animator.runtimeAnimatorController = bugAnimatorControllers[randomBugType];
+        funFact = bugFacts[randomBugType];
     }
 
     private void FindPaths()

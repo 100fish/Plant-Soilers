@@ -42,6 +42,10 @@ public class TouchInput : MonoBehaviour
     public List<GameObject> touchBalls;
     public UnityEngine.InputSystem.EnhancedTouch.Touch[] touches = new UnityEngine.InputSystem.EnhancedTouch.Touch[5];
     public int[] touchesList { get; private set; } = new int[5];
+
+    [SerializeField]
+    SoilMousePass soilManager;
+
     public RaycastHit hitMesh { get; private set; } //Griff code (removed for now)
 
     //public RaycastHit hit; //Griff code (removed for now)
@@ -84,8 +88,9 @@ public class TouchInput : MonoBehaviour
                 {
                     //Debug.Log("Hit object: " + hit.collider.gameObject.name);
                     hitMesh = hit;
-                    Debug.Log("hitMesh = hit");
-                    Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 8); //Arbitrary z value to keep the object visible
+                    //Debug.Log("hitMesh = hit");
+
+                    Vector3 touchSpotZFix = new Vector3(hit.point.x, hit.point.y, 0.2f + 10 - (soilManager.fakeRenderTexture[(int)(hit.textureCoord.x * 102), (int)(hit.textureCoord.y * 102)]) * 2); //Arbitrary z value to keep the object visible
 
                     TouchBall.transform.position = touchSpotZFix;
 

@@ -1,5 +1,96 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &780919664022953827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7432056092685836704}
+  - component: {fileID: 156764539499821093}
+  - component: {fileID: 6495841173105257444}
+  - component: {fileID: 974711258521259452}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7432056092685836704
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780919664022953827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 24.29, y: 24.29, z: 24.29}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8618993919003763570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -313, y: 12}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &156764539499821093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780919664022953827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Shadow
+  m_EffectColor: {r: 0, g: 0.108952045, b: 1, a: 0.5}
+  m_EffectDistance: {x: -0.15, y: -0.11}
+  m_UseGraphicAlpha: 1
+--- !u!222 &6495841173105257444
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780919664022953827}
+  m_CullTransparentMesh: 1
+--- !u!114 &974711258521259452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780919664022953827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.25490198}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 788182799, guid: e698221a459cd434ba77c2317cbf2423, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2114519736026758790
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +120,7 @@ RectTransform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7432056092685836704}
   - {fileID: 4093358416702570226}
   - {fileID: 3476733185271672651}
   m_Father: {fileID: 7774946208674381089}
@@ -58,7 +150,7 @@ GameObject:
   - component: {fileID: 1668166859572150076}
   - component: {fileID: 7827952793029809983}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,16 +163,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128936353694892729}
-  m_LocalRotation: {x: 0, y: 0, z: 0.1353697, w: 0.9907952}
+  m_LocalRotation: {x: -0, y: -0, z: 0.010914321, w: 0.99994045}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8618993919003763570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.56}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.251}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221, y: 20}
+  m_AnchoredPosition: {x: -164, y: 149}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1668166859572150076
@@ -111,8 +203,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: its got legs its got head its got colors its got legs its got legs its
-    go
+  m_text: Hi, I'm a dragon springtail, the cleaner of the soil! I eat fungi and decaying
+    plants, speeding up the decomposition rate of organic matte.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1900d304b8e810b42af063df92096517, type: 2}
   m_sharedMaterial: {fileID: -931238016758308409, guid: 1900d304b8e810b42af063df92096517, type: 2}
@@ -139,18 +231,18 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMax: 75
+  m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_characterHorizontalScale: 1.99
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -178,7 +270,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -553.7667, y: 0, z: 13.773766, w: -763.6169}
+  m_margin: {x: -553.7667, y: 0, z: -271.40222, w: -560.8339}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -298,7 +390,7 @@ GameObject:
   - component: {fileID: 1497945588862349035}
   - component: {fileID: 5853793681927315565}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,16 +403,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4783211023274883352}
-  m_LocalRotation: {x: 0, y: 0, z: 0.1353697, w: 0.9907952}
+  m_LocalRotation: {x: -0, y: -0, z: 0.01509591, w: 0.9998861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8618993919003763570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.56}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.73}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -236, y: 254}
+  m_AnchoredPosition: {x: -314, y: 380}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1497945588862349035
@@ -378,14 +470,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 175
+  m_fontSizeBase: 175
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -417,7 +509,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -553.7667, y: 0, z: -1552.0765, w: -763.6169}
+  m_margin: {x: -553.7667, y: 0, z: -561.3088, w: -371.3411}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -452,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8078734713088209028}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8512897, y: 0.1493597, z: 4.91293}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 1
@@ -494,8 +586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c35ce1bd853ade43833bb915baa5939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathFollow
-  mainCamera: {fileID: 0}
-  soilManager: {fileID: 0}
   pathsToFollow:
   - {fileID: 0}
   - {fileID: 0}
@@ -532,6 +622,18 @@ MonoBehaviour:
   - {fileID: 9100000, guid: af3f1282bf6be6244b5ede5191eb5b87, type: 2}
   - {fileID: 9100000, guid: af3f1282bf6be6244b5ede5191eb5b87, type: 2}
   - {fileID: 9100000, guid: 10dde4a60a7ad96429f8bdd98eb955c8, type: 2}
+  bugFacts:
+  - "It\u2019s me, earthworm! As I tunnel through the soil and consume it, I turn
+    it into rich and crumbly ground."
+  - 'Tough, resilient, and thrive in almost any environment--that''s me, the ant.
+    I also carry seeds to my home to help them spread. '
+  - "I\u2019m black-headed cockchafer larva. I aerate the soil when I'm little, doing
+    my good deed, but wait till I grow up, then I feast on root."
+  - Hi, I'm yellow trapdoor spider, an architect of the soil. I build my burrow and
+    hunt pests underground.
+  - "Hi, I'm a pseudoscorpion. Don't let my small size fool you\u2014I'm a carnivore!"
+  - Hi, I'm a dragon springtail, the cleaner of the soil! I eat fungi and decaying
+    plants, speeding up the decomposition rate of organic matte.
 --- !u!135 &5539257568422150370
 SphereCollider:
   m_ObjectHideFlags: 0
