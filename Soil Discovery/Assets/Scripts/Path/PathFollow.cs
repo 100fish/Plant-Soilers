@@ -178,6 +178,7 @@ public class PathFollow : MonoBehaviour
         bugInfoCanvas.enabled = false;
     }
 
+    //new functions from griff
     private void ChooseRandomProfile()
     {
         int randomBugType = Random.Range(0, 5);
