@@ -8,11 +8,13 @@ public class MushroomSpawner : MonoBehaviour
     private bool canSpawn = true;
     private bool isSpawning = false;
     public List<GameObject> spawnedMushrooms = new List<GameObject>();
-    private GameObject dummyShroom = new GameObject("DummyShroom");
     public static MushroomSpawner Instance;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameObject dummyShroom = new GameObject("DummyShroom");
+
         Instance = this;
         spawnedMushrooms.Add(dummyShroom);
     }

@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -39,7 +39,6 @@ public class BugManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
     }

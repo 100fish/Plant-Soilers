@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Soil
-  m_Shader: {fileID: -6465566751694194690, guid: 3eecbd7fa6f30c047961dbac9cc0872f, type: 3}
+  m_Name: Rock
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -17,7 +17,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -30,14 +31,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Cursor:
-        m_Texture: {fileID: 2800000, guid: f4704a3b258383449833ddc570aa5453, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CursorDisplace:
-        m_Texture: {fileID: 2800000, guid: 8e4d38d70795a844e8531dc8b75ec3e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -64,10 +57,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _New_Texture:
-        m_Texture: {fileID: 2800000, guid: 4b2d7d17e9c8ab846b75a8d5d7a08e8b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -76,20 +65,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_10e64dea9ff744e1932dc2e6dff4e56e_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: a0c6b1bee90062144b3c177cbbdf257c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_fd01c128378b47d6b852a065afe9ba4d_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 4b2d7d17e9c8ab846b75a8d5d7a08e8b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture:
-        m_Texture: {fileID: 2800000, guid: 63739de831ae2ac418bdc67ec46f2455, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -125,10 +102,8 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -137,40 +112,17 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _UVSec: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BugPos1: {r: 0.52977026, g: 0.3169961, b: 0, a: 0}
-    - _BugPos10: {r: 0.0053575262, g: 0.6614237, b: 0, a: 0}
-    - _BugPos2: {r: 0.55938506, g: 0.6334245, b: 0, a: 0}
-    - _BugPos3: {r: 0.4359988, g: 0.42221257, b: 0, a: 0}
-    - _BugPos4: {r: 0.6981115, g: 0.62331176, b: 0, a: 0}
-    - _BugPos5: {r: 0, g: 0, b: 0, a: 0}
-    - _BugPos6: {r: 0, g: 0, b: 0, a: 0}
-    - _BugPos7: {r: 0.44673538, g: 0.41204143, b: 0, a: 0}
-    - _BugPos8: {r: 0.045841474, g: 0.681003, b: 0, a: 0}
-    - _BugPos9: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.13349947, g: 0.17014869, b: 0.2264151, a: 1}
+    - _Color: {r: 0.13349944, g: 0.17014864, b: 0.22641507, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MousePosition: {r: 0.56519735, g: 0.5243814, b: 0, a: 0}
-    - _MousePosition2: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TouchPos1: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos10: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos2: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos3: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos4: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos5: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos6: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos7: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos8: {r: 0, g: 0, b: 0, a: 0}
-    - _TouchPos9: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &1731988063525688390
+--- !u!114 &6921752385432067485
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

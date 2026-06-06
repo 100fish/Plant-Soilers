@@ -15455,6 +15455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6381618570172386792, guid: 7eeecfa5de02b904eb9ff6487ec314ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15473,6 +15477,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5211056392569292702, guid: 65f00690d8b7aac4493212ed40bd518a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7587612549767479599, guid: 65f00690d8b7aac4493212ed40bd518a, type: 3}
       propertyPath: m_Name
       value: MushroomPrefab2
@@ -15686,6 +15694,10 @@ PrefabInstance:
     - target: {fileID: 2531675877191134958, guid: 73f896325e10bc642b2a3d8f60bd057a, type: 3}
       propertyPath: m_Name
       value: MushroomPrefab1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973377081382216300, guid: 73f896325e10bc642b2a3d8f60bd057a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
